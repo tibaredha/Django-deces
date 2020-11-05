@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}page{% endblock %}
+{% load static %}
+{% block content %}
+
+<!-- <img src="{% static 'img/icons/accept.png' %}" alt="My image"> -->
+<!-- <img src="{% static 'img/cloche.jpg' %}" alt="My image"> -->
+</br>
+<div class="vertical-menu">
+	<a href="/admin/" class="active" >admin</a>
+	<a href="/blog/">blog</a>
+	<a href="/blog/home/">/blog/home/</a>
+	<a href="/blog/home1/">/blog/home1/</a>
+	<a href="/">index</a>
+	<a href="#">Link 4</a>
+</div>
+  
+  
+  Cette page est une
+  page toute simple : {{nom}}
+  <style>
+	table {
+	  font-family: arial, sans-serif;
+	  border-collapse: collapse;
+	  width: 100%;
+	}
+
+	td, th {
+	  border: 1px solid #dddddd;
+	  text-align: left;
+	  padding: 8px;
+	}
+
+	tr:nth-child(even) {
+	  background-color: #dddddd;
+	}
+	<!-- table, th, td { -->
+    <!-- border: 1px solid red; -->
+
+  </style>
+  
+  
+  <h1>Wilayas</h1>
+  <table style="width:100%">
+  <tr>
+    <th>Wilaya_name</th>
+    <th>Wilaya_code</th>
+    <th>observation</th>
+  </tr>
+  {% for wil in wilatas %}
+  <tr>  
+	  <td>{{wil.nom}}</td>
+	  <td>{{wil.num}}</td>
+	  <td><a  href="#">***</a></td>
+  </tr> 
+  {% endfor %}
+</table>
+  <br>
+  <hr>
+  <hr>
+  
+  <form action="/blog/home1/" method="post">
+    <label for="your_name">Your name: </label>
+    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+    <input type="submit" value="OK">
+  </form>
+{% endblock %}
